@@ -1,117 +1,115 @@
-# PYTHON BEST PRACTICES 2025
+# 🐍 Python Best Practices 2025
 
-## 🐍 Master Python Development - Comprehensive Guide
+Comprehensive guide to writing reliable, maintainable, and high-performance Python code.
 
-### Current Python Versions (2025)
-- **Python 3.13.2** (Feb 2025) - Latest stable with JIT, free-threading
-- **Python 3.14** (Alpha 7) - Template strings (t-strings), TYPE_CHECKING builtin
-- **Recommended**: Python 3.12+ for production, 3.13+ for performance
+---
 
-### Key 2025 Features
-- **Free-threading mode** (no-GIL) via `--free-threading`
-- **Experimental JIT compiler** (PEP 744) - 30% speedups
-- **Template strings** (PEP 750) in Python 3.14
-- **iOS support** (PEP 730) for mobile development
-- **Enhanced interactive REPL** with multiline editing
+## 🔍 Supported Python Versions
+
+- ⚡️ **Python 3.13.2** (Feb 2025) – Stable with JIT compiler & free-threading support  
+- 🧪 **Python 3.14** (Alpha) – Template strings (PEP 750), new `TYPE_CHECKING` builtin  
+- ✅ **Recommended**: 3.12+ for production, 3.13+ to leverage performance features  
+
+---
+
+## 🚀 New & Experimental Features
+
+- 🆓 **Free-Threading Mode** (`--free-threading`) – no GIL, true parallelism  
+- 🔥 **Experimental JIT** (PEP 744) – up to 30% speed gains  
+- ✂️ **Template Strings** (PEP 750) – multiline f-string-like templating  
+- 📱 **iOS Support** (PEP 730) – Python on mobile devices  
+- 💬 **Enhanced REPL** – multiline editing, syntax highlighting  
+
+---
 
 ## 📁 Repository Structure
 
 ```
-01-CORE-PRINCIPLES/     # PEP standards, naming, design patterns
-02-LINTING-FORMATTING/  # Ruff, Black, MyPy configurations
-03-TESTING-FRAMEWORKS/  # Pytest, unittest, coverage
-04-PROJECT-STRUCTURE/   # Modern project layouts
-05-PERFORMANCE-SECURITY # Optimization & security practices
-06-CI-CD-TEMPLATES/     # GitHub Actions, pre-commit hooks
-07-EXAMPLES/           # Real-world implementation examples
+01-CORE-PRINCIPLES/      # PEP guidelines, naming conventions, SOLID & design patterns  
+02-LINTING-FORMATTING/   # Ruff, Black & MyPy configs + style guide  
+03-TESTING-FRAMEWORKS/   # pytest, unittest, coverage examples  
+04-PROJECT-STRUCTURE/    # src layout, module vs. package best practices  
+05-PERFORMANCE-SECURITY/ # Profiling tips, optimizations & security checks  
+06-CI-CD-TEMPLATES/      # GitHub Actions, pre-commit hooks & YAML samples  
+07-EXAMPLES/             # Data pipelines, FastAPI demos, real-world code  
+output/                  # Generated docs, reports, artifacts  
 ```
 
-## 🚀 Quick Start Checklist
+---
 
-### Essential Tools (2025 Stack)
-- **Linter**: Ruff (1000x faster than pylint)
-- **Formatter**: Black + Ruff format
-- **Type Checker**: MyPy or Pyright
-- **Testing**: Pytest + Coverage
-- **Package Manager**: uv (fastest) or Poetry
+## 🛠️ Essential Tools & Setup
 
-### Installation Commands
-```bash
-# Core toolchain
+### Toolchain
+
+- 🔍 **Linter**: [Ruff](https://github.com/charliermarsh/ruff) – ultra-fast, zero-config linting  
+- 🎨 **Formatter**: [Black](https://github.com/psf/black) + Ruff format  
+- 🔢 **Type Checker**: [MyPy](http://mypy-lang.org/) or [Pyright](https://github.com/microsoft/pyright)  
+- 🧪 **Testing**: [pytest](https://docs.pytest.org/) + [pytest-cov](https://github.com/pytest-dev/pytest-cov)  
+- 📦 **Package Manager**: [uv](https://github.com/pdm-project/uv) (recommended) or [Poetry](https://python-poetry.org/)  
+
+### Installation
+
+```powershell
+# Install core development tools
 pip install ruff black mypy pytest pytest-cov
 
-# or with uv (recommended)
+# Or using uv package manager
 uv add --dev ruff black mypy pytest pytest-cov
 
-# Optional but powerful
+# Optional security & pre-commit tools
 pip install pre-commit bandit safety
 ```
 
+### Pre-Commit Hooks
+
+Create a `.pre-commit-config.yaml`:
+
+```yaml
+repos:
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.4.4  
+    hooks:
+      - id: ruff
+
+  - repo: https://github.com/psf/black
+    rev: 24.4.2  
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0  
+    hooks:
+      - id: mypy
+```
+
+Enable by running:
+
+```bash
+pre-commit install
+```
+
+---
+
 ## 📖 Learning Path
 
-### Beginner → Intermediate
-1. **Master PEP 8** (01-CORE-PRINCIPLES/pep8-guide.md)
-2. **Setup linting** (02-LINTING-FORMATTING/ruff-config.toml)
-3. **Write tests** (03-TESTING-FRAMEWORKS/pytest-guide.md)
-4. **Structure projects** (04-PROJECT-STRUCTURE/)
+1. **01-CORE-PRINCIPLES** – PEP standards, naming, SOLID & design patterns  
+2. **02-LINTING-FORMATTING** – Configure and enforce lint & format rules  
+3. **03-TESTING-FRAMEWORKS** – Write robust tests & measure coverage  
+4. **04-PROJECT-STRUCTURE** – Organize code for maintainability  
+5. **05-PERFORMANCE-SECURITY** – Profile, optimize, and secure applications  
+6. **06-CI-CD-TEMPLATES** – Automate linting, testing & deployment pipelines  
+7. **07-EXAMPLES** – Explore real-world scripts and template projects  
 
-### Intermediate → Advanced
-1. **Performance optimization** (05-PERFORMANCE-SECURITY/)
-2. **Security scanning** (bandit, safety)
-3. **CI/CD automation** (06-CI-CD-TEMPLATES/)
-4. **Type system mastery** (MyPy advanced patterns)
+---
 
-### Advanced → Expert
-1. **Custom metaclasses & descriptors**
-2. **C extensions & Cython**
-3. **Async/await patterns**
-4. **Memory profiling & optimization**
+## 🧩 Examples & Templates
 
-## 🎯 2025 Best Practices Summary
+- **data-science-pipeline.py** – ETL workflow with logging, error handling & tests  
+- **fastapi-app.py** – Minimal FastAPI service with Pydantic models & security checks  
 
-### Code Quality
-- Use **Ruff** for linting (replaces flake8, pylint)
-- **Black** for consistent formatting
-- **MyPy** for type safety
-- **Pre-commit hooks** for automation
+---
 
-### Testing Strategy
-- **Pytest** as primary framework
-- **Coverage.py** for 90%+ coverage
-- **Hypothesis** for property-based testing
-- **Factory Boy** for test data
-
-### Performance
-- **Profile first** with cProfile, py-spy
-- **Use built-ins** (collections, itertools)
-- **Async/await** for I/O bound tasks
-- **Cython/NumPy** for compute-heavy work
-
-### Security
-- **Bandit** for vulnerability scanning
-- **Safety** for dependency checking
-- **Never hardcode secrets**
-- **Validate all inputs**
-
-## 📚 Documentation References
-
-### Official Python Docs
-- [What's New in Python 3.13](https://docs.python.org/3/whatsnew/3.13.html)
-- [Python 3.14 Alpha](https://docs.python.org/3.14/whatsnew/3.14.html)
-- [PEP Index](https://peps.python.org/)
-
-### Essential PEPs (2025)
-- **PEP 8**: Style Guide (forever relevant)
-- **PEP 703**: Free-threading (Python 3.13+)
-- **PEP 744**: JIT Compiler (Python 3.13+)
-- **PEP 750**: Template strings (Python 3.14)
-
-### Modern Tools
-- [Ruff Documentation](https://docs.astral.sh/ruff/)
-- [Pytest Documentation](https://docs.pytest.org/)
-- [MyPy Documentation](https://mypy.readthedocs.io/)
-
-## 🔧 Quick Commands Reference
+## 🎯 Quick Commands Reference
 
 ```bash
 # Linting & Formatting
@@ -131,20 +129,17 @@ safety check                   # Dependency vulnerabilities
 
 # Project setup
 ruff init                       # Initialize ruff config
-pytest --collect-only          # Discover tests
 pre-commit install             # Setup git hooks
 ```
 
-## 🏆 Master-Level Goals
+---
 
-By mastering this repository, you will:
-- Write production-ready Python code
-- Implement comprehensive testing strategies
-- Optimize for performance and security
-- Build maintainable, scalable applications
-- Lead Python development teams
-- Contribute to open-source projects
+## ⭐ Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) and follow our code style guidelines.  
 
 ---
 
-**Last Updated**: May 2025 | **Python Versions**: 3.12-3.14 | **Tools**: Ruff, Black, MyPy, Pytest
+## 📄 License
+
+This project is licensed under MIT. See [LICENSE](LICENSE) for details.
