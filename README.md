@@ -1,3 +1,5 @@
+![Banner](banner.png)
+
 # 🐍 Python Best Practices 2025
 
 Comprehensive guide to writing reliable, maintainable, and high-performance Python code.
