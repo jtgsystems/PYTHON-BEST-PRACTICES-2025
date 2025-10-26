@@ -487,3 +487,9 @@ cat 07-EXAMPLES/data-science-pipeline.py
 *Last Updated: 2025-10-26*
 *Repository: jtgsystems/PYTHON-BEST-PRACTICES-2025*
 *Local Path: ~/Desktop/PYTHON-BEST-PRACTICES-2025/*
+
+## Framework Versions
+
+- No major frameworks detected in this project
+- This may be a utility script, documentation project, or uses custom dependencies
+
