@@ -8,19 +8,20 @@ Comprehensive guide to writing reliable, maintainable, and high-performance Pyth
 
 ## 🔍 Supported Python Versions
 
-- ⚡️ **Python 3.13.2** (Feb 2025) – Stable with JIT compiler & free-threading support  
-- 🧪 **Python 3.14** (Alpha) – Template strings (PEP 750), new `TYPE_CHECKING` builtin  
-- ✅ **Recommended**: 3.12+ for production, 3.13+ to leverage performance features  
+- ⚡️ **Python 3.14.0** (Oct 7, 2025) – Latest stable with official free-threaded builds, template strings, deferred annotations, and bundled `compression.zstd` module  
+- 🛡️ **Python 3.13.x** (latest bugfix 3.13.9 on Oct 14, 2025) – Conservative choice with extended support through Oct 2029  
+- 📦 **Security-only**: 3.12 LTS receives fixes until Oct 2028; upgrade plans should target 3.13+  
 
 ---
 
 ## 🚀 New & Experimental Features
 
-- 🆓 **Free-Threading Mode** (`--free-threading`) – no GIL, true parallelism  
-- 🔥 **Experimental JIT** (PEP 744) – up to 30% speed gains  
-- ✂️ **Template Strings** (PEP 750) – multiline f-string-like templating  
-- 📱 **iOS Support** (PEP 730) – Python on mobile devices  
-- 💬 **Enhanced REPL** – multiline editing, syntax highlighting  
+- 🆓 **Free-Threaded CPython** (PEP 779) – official tier-2 builds enable real multi-core scaling  
+- 🔤 **Template String Literals** (PEP 750) – safer templating for SQL, shell, and i18n use cases  
+- 📝 **Deferred Annotations** (PEP 649) – annotation evaluation happens on demand for faster imports  
+- 🧵 **Multiple Interpreters API** (PEP 734) – `concurrent.interpreters` brings low-overhead parallelism  
+- 📦 **`compression.zstd` Module** (PEP 784) – native Zstandard support across stdlib tools  
+- 🔥 **JIT & REPL Enhancements** – experimental JIT binaries ship for macOS/Windows; REPL ships with colorized output and smarter hints  
 
 ---
 
@@ -43,22 +44,23 @@ output/                  # Generated docs, reports, artifacts
 
 ### Toolchain
 
-- 🔍 **Linter**: [Ruff](https://github.com/charliermarsh/ruff) – ultra-fast, zero-config linting  
-- 🎨 **Formatter**: [Black](https://github.com/psf/black) + Ruff format  
-- 🔢 **Type Checker**: [MyPy](http://mypy-lang.org/) or [Pyright](https://github.com/microsoft/pyright)  
-- 🧪 **Testing**: [pytest](https://docs.pytest.org/) + [pytest-cov](https://github.com/pytest-dev/pytest-cov)  
-- 📦 **Package Manager**: [uv](https://github.com/pdm-project/uv) (recommended) or [Poetry](https://python-poetry.org/)  
+- 🔍 **Linter & Formatter**: [Ruff 0.14.3](https://github.com/astral-sh/ruff) – bundles linting, formatting, and rule sets  
+- 🎨 **Formatter**: Ruff format (or [Black](https://github.com/psf/black) for parity with legacy pipelines)  
+- 🔢 **Type Checking**: [MyPy](http://mypy-lang.org/) or [Pyright](https://github.com/microsoft/pyright) depending on ecosystem  
+- 🧪 **Testing**: [pytest](https://docs.pytest.org/) + [pytest-cov](https://github.com/pytest-dev/pytest-cov) for coverage  
+- 📦 **Package Manager**: [uv 0.9.7](https://github.com/astral-sh/uv) for fast, secure dependency workflows; [Poetry](https://python-poetry.org/) remains a solid alternative  
 
 ### Installation
 
 ```powershell
-# Install core development tools
-pip install ruff black mypy pytest pytest-cov
+# Install core development tools with pip
+pip install "ruff>=0.14.3" black mypy pytest pytest-cov
 
-# Or using uv package manager
-uv add --dev ruff black mypy pytest pytest-cov
+# Or using uv (recommended for speed and lockfiles)
+uv tool upgrade "uv>=0.9.7"
+uv add --dev ruff>=0.14.3 black mypy pytest pytest-cov
 
-# Optional security & pre-commit tools
+# Optional security & automation
 pip install pre-commit bandit safety
 ```
 
@@ -68,18 +70,20 @@ Create a `.pre-commit-config.yaml`:
 
 ```yaml
 repos:
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.4.4  
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.3
     hooks:
-      - id: ruff
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
 
   - repo: https://github.com/psf/black
-    rev: 24.4.2  
+    rev: 24.10.0
     hooks:
       - id: black
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.0  
+    rev: v1.12.0
     hooks:
       - id: mypy
 ```

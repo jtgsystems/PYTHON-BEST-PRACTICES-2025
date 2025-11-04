@@ -1,10 +1,10 @@
-# Linting & Formatting Setup - 2025 Stack
+# Linting & Formatting Setup - November 2025 Stack
 
 ## Tool Selection Rationale
 
 ### Primary Stack (2025)
-1. **Ruff** - Lightning-fast linting & formatting (1000x faster than pylint)
-2. **Black** - Opinionated code formatting (industry standard)
+1. **Ruff 0.14.3+** - Lightning-fast linting, formatting, import sorting, security checks
+2. **Black** - Opinionated formatter (useful when matching legacy repos or CI contracts)
 3. **MyPy** - Static type checking
 4. **Pre-commit** - Automated git hooks
 
@@ -23,13 +23,14 @@ MyPy          ⭐⭐        ⭐⭐⭐⭐⭐   ⭐⭐⭐⭐
 ### Quick Start
 ```bash
 # Essential tools
-pip install ruff black mypy pre-commit
+pip install "ruff>=0.14.3" black mypy pre-commit
 
 # Optional security tools
 pip install bandit safety
 
 # With uv (fastest package manager)
-uv add --dev ruff black mypy pre-commit bandit safety
+uv tool upgrade "uv>=0.9.7"
+uv add --dev ruff>=0.14.3 black mypy pre-commit bandit safety
 ```
 
 ### IDE Integration
@@ -51,13 +52,13 @@ dynamic = ["version"]
 description = "Your project description"
 authors = [{name = "Your Name", email = "you@example.com"}]
 license = {text = "MIT"}
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 
 [tool.ruff]
 # Same as Black
 line-length = 88
 indent-width = 4
-target-version = "py312"
+target-version = "py314"
 
 # Directories to exclude
 exclude = [
@@ -171,7 +172,7 @@ line-ending = "auto"
 
 [tool.black]
 line-length = 88
-target-version = ['py312']
+target-version = ['py314']
 include = '\.pyi?$'
 extend-exclude = '''
 /(
@@ -189,7 +190,7 @@ extend-exclude = '''
 '''
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.14"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
@@ -379,20 +380,20 @@ repos:
       - id: debug-statements
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.6
+    rev: v0.14.3
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix, --exit-non-zero-on-fix]
       - id: ruff-format
 
   - repo: https://github.com/psf/black
-    rev: 23.9.1
+    rev: 24.10.0
     hooks:
       - id: black
-        language_version: python3.12
+        language_version: python3.14
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.6.1
+    rev: v1.12.0
     hooks:
       - id: mypy
         additional_dependencies: [types-requests, types-PyYAML]
