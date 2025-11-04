@@ -9,7 +9,7 @@ Comprehensive Python best practices repository covering modern development stand
 **GitHub Repository**: `jtgsystems/PYTHON-BEST-PRACTICES-2025`
 **Purpose**: Master-level Python development guide with practical examples, configurations, and automation templates
 **Target Audience**: Python developers seeking production-ready best practices
-**Python Versions**: 3.12+ (recommended), 3.13+ for performance features
+**Python Versions**: 3.13+ (baseline), 3.14 for free-threaded & JIT features
 
 ---
 
@@ -93,7 +93,7 @@ PYTHON-BEST-PRACTICES-2025/
 **Ruff Configuration** (`ruff-config.toml`):
 - Comprehensive rule set (70+ rule categories)
 - Line length: 88 characters (Black default)
-- Target: Python 3.12+
+- Target: Python 3.14 (py314)
 - Exclude directories (migrations, venv, cache)
 - Per-file ignores (tests, scripts, migrations)
 - McCabe complexity limit: 10
@@ -163,7 +163,7 @@ PYTHON-BEST-PRACTICES-2025/
   - Lint and format checking (Ruff, Black, MyPy)
   - Security scanning (Bandit, Safety, Semgrep)
   - Multi-platform testing (Ubuntu, Windows, macOS)
-  - Matrix builds (Python 3.12, 3.13)
+  - Matrix builds (Python 3.13, 3.14)
   - Service containers (PostgreSQL, Redis)
   - Coverage reporting (Codecov)
   - Package building and PyPI deployment
@@ -188,7 +188,7 @@ PYTHON-BEST-PRACTICES-2025/
 ## Key Technologies & Tools
 
 ### Core Development Tools
-- **Python**: 3.12+ (stable), 3.13+ (JIT compiler, free-threading)
+- **Python**: 3.13+ (stable), 3.14 (JIT compiler, free-threading)
 - **Package Manager**: uv (recommended) or Poetry
 - **Linter**: Ruff
 - **Formatter**: Black
@@ -260,10 +260,10 @@ pre-commit install            # Setup git hooks
 Location: Examples in `02-LINTING-FORMATTING/setup-guide.md`
 
 Key sections:
-- `[tool.ruff]`: Line length (88), target version (py312), exclusions
+- `[tool.ruff]`: Line length (88), target version (py314), exclusions
 - `[tool.ruff.lint]`: 70+ rule categories enabled
 - `[tool.ruff.format]`: Double quotes, space indent, trailing commas
-- `[tool.black]`: Line length (88), target version (py312)
+- `[tool.black]`: Line length (88), target version (py314)
 - `[tool.mypy]`: Strict type checking, show error codes
 - `[tool.coverage]`: Source paths, omit patterns, exclusions
 - `[tool.pytest]`: Addopts, testpaths, markers
@@ -356,7 +356,7 @@ Hooks included:
 - **Enhanced REPL**: Multiline editing, syntax highlighting
 
 ### Recommended Versions
-- **Production**: Python 3.12+ (stable)
+- **Production**: Python 3.13+ (stable)
 - **Performance**: Python 3.13+ (JIT, free-threading)
 - **Development**: Latest stable release
 
@@ -370,7 +370,7 @@ Location: `06-CI-CD-TEMPLATES/github-actions.md`
 **Pipeline Stages**:
 1. **Lint & Format**: Ruff, Black, MyPy
 2. **Security Scan**: Bandit, Safety, Semgrep
-3. **Test**: Multi-OS (Ubuntu, Windows, macOS), Multi-version (3.12, 3.13)
+3. **Test**: Multi-OS (Ubuntu, Windows, macOS), Multi-version (3.13, 3.14)
 4. **Build**: Package with twine check
 5. **Deploy**: PyPI publishing (on release)
 6. **Docker**: Image build and push
@@ -385,7 +385,7 @@ Location: `06-CI-CD-TEMPLATES/github-actions.md`
 ## Docker Support
 
 ### Production Dockerfile
-- Base: python:3.12-slim
+- Base: python:3.14-slim
 - Non-root user (appuser)
 - Health checks
 - Security hardening
@@ -492,4 +492,3 @@ cat 07-EXAMPLES/data-science-pipeline.py
 
 - No major frameworks detected in this project
 - This may be a utility script, documentation project, or uses custom dependencies
-

@@ -45,8 +45,8 @@ output/                  # Generated docs, reports, artifacts
 ### Toolchain
 
 - 🔍 **Linter & Formatter**: [Ruff 0.14.3](https://github.com/astral-sh/ruff) – bundles linting, formatting, and rule sets  
-- 🎨 **Formatter**: Ruff format (or [Black](https://github.com/psf/black) for parity with legacy pipelines)  
-- 🔢 **Type Checking**: [MyPy](http://mypy-lang.org/) or [Pyright](https://github.com/microsoft/pyright) depending on ecosystem  
+- 🎨 **Formatter**: Ruff format (or [Black 25.9.0](https://github.com/psf/black) for parity with legacy pipelines)  
+- 🔢 **Type Checking**: [MyPy 1.18.2](http://mypy-lang.org/) or [Pyright](https://github.com/microsoft/pyright) depending on ecosystem  
 - 🧪 **Testing**: [pytest](https://docs.pytest.org/) + [pytest-cov](https://github.com/pytest-dev/pytest-cov) for coverage  
 - 📦 **Package Manager**: [uv 0.9.7](https://github.com/astral-sh/uv) for fast, secure dependency workflows; [Poetry](https://python-poetry.org/) remains a solid alternative  
 
@@ -54,11 +54,11 @@ output/                  # Generated docs, reports, artifacts
 
 ```powershell
 # Install core development tools with pip
-pip install "ruff>=0.14.3" black mypy pytest pytest-cov
+pip install "ruff>=0.14.3" "black>=25.9.0" "mypy>=1.18.2" pytest pytest-cov
 
 # Or using uv (recommended for speed and lockfiles)
 uv tool upgrade "uv>=0.9.7"
-uv add --dev ruff>=0.14.3 black mypy pytest pytest-cov
+uv add --dev ruff>=0.14.3 black>=25.9.0 mypy>=1.18.2 pytest pytest-cov
 
 # Optional security & automation
 pip install pre-commit bandit safety
@@ -78,12 +78,12 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/psf/black
-    rev: 24.10.0
+    rev: 25.9.0
     hooks:
       - id: black
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.12.0
+    rev: v1.18.2
     hooks:
       - id: mypy
 ```

@@ -23,14 +23,14 @@ MyPy          ⭐⭐        ⭐⭐⭐⭐⭐   ⭐⭐⭐⭐
 ### Quick Start
 ```bash
 # Essential tools
-pip install "ruff>=0.14.3" black mypy pre-commit
+pip install "ruff>=0.14.3" "black>=25.9.0" "mypy>=1.18.2" pre-commit
 
 # Optional security tools
 pip install bandit safety
 
 # With uv (fastest package manager)
 uv tool upgrade "uv>=0.9.7"
-uv add --dev ruff>=0.14.3 black mypy pre-commit bandit safety
+uv add --dev ruff>=0.14.3 black>=25.9.0 mypy>=1.18.2 pre-commit bandit safety
 ```
 
 ### IDE Integration
@@ -387,13 +387,13 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/psf/black
-    rev: 24.10.0
+    rev: 25.9.0
     hooks:
       - id: black
         language_version: python3.14
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.12.0
+    rev: v1.18.2
     hooks:
       - id: mypy
         additional_dependencies: [types-requests, types-PyYAML]

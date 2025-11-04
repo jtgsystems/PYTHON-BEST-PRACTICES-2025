@@ -164,7 +164,7 @@ echo 📝 Creating pyproject.toml template with complete linting rules...
 echo # Python Best Practices 2025 - Complete Configuration > "pyproject.toml.template"
 echo. >> "pyproject.toml.template"
 echo [tool.ruff] >> "pyproject.toml.template"
-echo target-version = "py312" >> "pyproject.toml.template"
+echo target-version = "py314" >> "pyproject.toml.template"
 echo line-length = 88 >> "pyproject.toml.template"
 echo indent-width = 4 >> "pyproject.toml.template"
 echo. >> "pyproject.toml.template"
@@ -242,14 +242,14 @@ echo indent-style = "space" >> "pyproject.toml.template"
 echo. >> "pyproject.toml.template"
 echo [tool.black] >> "pyproject.toml.template"
 echo line-length = 88 >> "pyproject.toml.template"
-echo target-version = ['py312'] >> "pyproject.toml.template"
+echo target-version = ['py314'] >> "pyproject.toml.template"
 
 echo.
 echo ✅ VSCode Python setup complete with comprehensive linting rules!
 echo.
 echo 📋 Next Steps:
 echo 1. Restart VSCode
-echo 2. Install Python tools: pip install ruff black mypy pytest
+echo 2. Install Python tools: pip install "ruff>=0.14.3" "black>=25.9.0" "mypy>=1.18.2" pytest
 echo 3. Copy pyproject.toml.template to your project as pyproject.toml
 echo 4. Open a Python project and see linting in action
 echo.

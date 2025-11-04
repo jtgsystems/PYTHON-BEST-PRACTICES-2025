@@ -48,8 +48,8 @@ function Set-UltraLintingSettings {
             # Line length set to reasonable limit
             "--line-length=120",
             
-            # Target Python 3.12+
-            "--target-version=py312",
+            # Target Python 3.14+
+            "--target-version=py314",
             
             # Additional performance settings
             "--cache-dir=.ruff_cache",
@@ -75,7 +75,7 @@ function Set-UltraLintingSettings {
         }
         "black-formatter.args" = @(
             "--line-length=120",
-            "--target-version=py312",
+            "--target-version=py314",
             "--skip-string-normalization"
         )
         
@@ -198,7 +198,7 @@ function New-ProjectLintingConfig {
             "--select=ALL",
             "--ignore=E501,W503,E203,D100,D101,D102,D103,D104,D105,D106,D107,ANN101,ANN102,ANN401,S101,FBT001,FBT002,T201,PLR0913,PLR2004,COM812,ISC001",
             "--line-length=120",
-            "--target-version=py312"
+            "--target-version=py314"
         )
         "python.testing.pytestArgs" = @("tests", "-v", "--tb=short", "--strict-markers", "--strict-config")
     }
@@ -209,7 +209,7 @@ function New-ProjectLintingConfig {
     # Ultra pyproject.toml template
     $pyprojectContent = @'
 [tool.ruff]
-target-version = "py312"
+target-version = "py314"
 line-length = 120
 indent-width = 4
 
@@ -251,11 +251,11 @@ line-ending = "auto"
 
 [tool.black]
 line-length = 120
-target-version = ["py312"]
+target-version = ["py314"]
 skip-string-normalization = true
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.14"
 strict = true
 warn_unreachable = true
 warn_redundant_casts = true
@@ -301,7 +301,7 @@ Write-Host "  • Performance optimizations"
 Write-Host ""
 Write-Host "Next Steps:"
 Write-Host "1. Restart VSCode"
-Write-Host "2. Install tools: pip install ruff black mypy pytest"
+Write-Host "2. Install tools: pip install \"ruff>=0.14.3\" \"black>=25.9.0\" \"mypy>=1.18.2\" pytest"
 Write-Host "3. Copy pyproject.toml.ultra-lint to pyproject.toml"
 Write-Host "4. Open Python file - see ultra linting in action"
 Write-Host ""

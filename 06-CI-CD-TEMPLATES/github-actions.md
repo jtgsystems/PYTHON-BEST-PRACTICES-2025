@@ -15,7 +15,7 @@ on:
     types: [ published ]
 
 env:
-  PYTHON_VERSION: "3.12"
+  PYTHON_VERSION: "3.14"
   POETRY_VERSION: "1.6.1"
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install ruff black mypy
+        pip install "ruff>=0.14.3" "black>=25.9.0" "mypy>=1.18.2"
 
     - name: Run Ruff linting
       run: ruff check .
@@ -86,7 +86,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.12", "3.13"]
+        python-version: ["3.13", "3.14"]
     
     services:
       postgres:
@@ -132,7 +132,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -e ".[test]"
+        pip install -e ".[test]" "ruff>=0.14.3" "black>=25.9.0" "mypy>=1.18.2"
 
     - name: Run tests with coverage
       run: |
@@ -296,20 +296,20 @@ repos:
       - id: check-xml
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.6
+    rev: v0.14.3
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix, --exit-non-zero-on-fix]
       - id: ruff-format
 
   - repo: https://github.com/psf/black
-    rev: 23.12.0
+    rev: 25.9.0
     hooks:
       - id: black
-        language_version: python3.12
+        language_version: python3.14
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.7.1
+    rev: v1.18.2
     hooks:
       - id: mypy
         additional_dependencies:
@@ -319,7 +319,7 @@ repos:
         args: [--strict, --ignore-missing-imports]
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.5
+    rev: 1.8.6
     hooks:
       - id: bandit
         args: ['-c', 'pyproject.toml']
@@ -338,10 +338,10 @@ repos:
         args: [--fail-under=80, --verbose]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
+    rev: v3.21.0
     hooks:
       - id: pyupgrade
-        args: [--py312-plus]
+        args: [--py314-plus]
 
   - repo: local
     hooks:
@@ -506,7 +506,7 @@ release-major: ## Release major version
 ### Production Dockerfile
 ```dockerfile
 # Dockerfile
-FROM python:3.12-slim as base
+FROM python:3.14-slim as base
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
@@ -551,7 +551,7 @@ CMD ["python", "-m", "myproject"]
 ### Multi-stage Development Dockerfile
 ```dockerfile
 # Dockerfile.dev
-FROM python:3.12-slim as base
+FROM python:3.14-slim as base
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \

@@ -99,10 +99,10 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "click>=8.1.0",
     "pydantic>=2.5.0",
@@ -111,27 +111,27 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.4.0",
-    "pytest-cov>=4.1.0",
-    "pytest-xdist>=3.5.0",
-    "pytest-mock>=3.12.0",
-    "ruff>=0.1.0",
-    "black>=23.12.0",
-    "mypy>=1.7.0",
-    "pre-commit>=3.6.0",
-    "bandit[toml]>=1.7.5",
-    "safety>=2.3.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-xdist>=3.8.0",
+    "pytest-mock>=3.15.1",
+    "ruff>=0.14.3",
+    "black>=25.9.0",
+    "mypy>=1.18.2",
+    "pre-commit>=4.3.0",
+    "bandit[toml]>=1.8.6",
+    "safety>=3.6.2",
 ]
 test = [
-    "pytest>=7.4.0",
-    "pytest-cov>=4.1.0",
-    "pytest-mock>=3.12.0",
-    "factory-boy>=3.3.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-mock>=3.15.1",
+    "factory-boy>=3.3.3",
 ]
 docs = [
-    "sphinx>=7.2.0",
-    "sphinx-rtd-theme>=2.0.0",
-    "myst-parser>=2.0.0",
+    "sphinx>=8.2.3",
+    "sphinx-rtd-theme>=3.0.2",
+    "myst-parser>=4.0.1",
 ]
 
 [project.urls]
@@ -150,7 +150,7 @@ path = "src/$ProjectName/__init__.py"
 packages = ["src/$ProjectName"]
 
 [tool.ruff]
-target-version = "py312"
+target-version = "py314"
 line-length = 88
 indent-width = 4
 
@@ -194,11 +194,11 @@ line-ending = "auto"
 
 [tool.black]
 line-length = 88
-target-version = ['py312']
+target-version = ['py314']
 include = '\.pyi?$'
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.14"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

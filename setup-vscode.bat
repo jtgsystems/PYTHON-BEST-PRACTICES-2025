@@ -107,7 +107,7 @@ echo ✅ VSCode Python setup complete!
 echo.
 echo 📋 Next Steps:
 echo 1. Restart VSCode
-echo 2. Install Python tools: pip install ruff black mypy pytest
+echo 2. Install Python tools: pip install "ruff>=0.14.3" "black>=25.9.0" "mypy>=1.18.2" pytest
 echo 3. Open a Python project
 echo 4. Use Ctrl+Shift+P to access Python commands
 echo.
