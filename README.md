@@ -8,9 +8,9 @@ Comprehensive guide to writing reliable, maintainable, and high-performance Pyth
 
 ## 🔍 Supported Python Versions
 
-- ⚡️ **Python 3.14.0** (Oct 7, 2025) – Latest stable with official free-threaded builds, template strings, deferred annotations, and bundled `compression.zstd` module  
-- 🛡️ **Python 3.13.x** (latest bugfix 3.13.9 on Oct 14, 2025) – Conservative choice with extended support through Oct 2029  
-- 📦 **Security-only**: 3.12 LTS receives fixes until Oct 2028; upgrade plans should target 3.13+  
+- ⚡️ **Python 3.14.0** (Oct 7, 2025) – Latest stable with official free-threaded builds, template strings, deferred annotations, and bundled `compression.zstd` module
+- 🛡️ **Python 3.13.9** (latest bugfix on Oct 14, 2025) – Conservative choice with extended support through Oct 2029
+- 📦 **Security-only**: 3.12 LTS receives fixes until Oct 2028; upgrade plans should target 3.13+
 
 ---
 
