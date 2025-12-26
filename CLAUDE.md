@@ -484,11 +484,131 @@ cat 07-EXAMPLES/data-science-pipeline.py
 
 ---
 
-*Last Updated: 2025-10-26*
+*Last Updated: 2025-12-26*
 *Repository: jtgsystems/PYTHON-BEST-PRACTICES-2025*
-*Local Path: ~/Desktop/PYTHON-BEST-PRACTICES-2025/*
+*GitHub URL: https://github.com/jtgsystems/PYTHON-BEST-PRACTICES-2025*
 
 ## Framework Versions
 
-- No major frameworks detected in this project
-- This may be a utility script, documentation project, or uses custom dependencies
+### Development Tools (2025)
+- **Ruff**: 0.14.3 (linter & formatter)
+- **Black**: 25.9.0 (code formatter)
+- **MyPy**: 1.18.2 (type checker)
+- **pytest**: Latest (testing framework)
+- **uv**: 0.9.7 (package manager)
+
+### Python Versions Supported
+- **Python 3.14.0**: Latest with free-threaded builds, JIT compiler
+- **Python 3.13.9**: Latest stable (LTS through Oct 2029)
+- **Python 3.12**: Security updates through Oct 2028
+
+### Example Applications
+- **FastAPI**: Modern async web framework (in examples)
+- **Pydantic**: Data validation (in examples)
+- No heavy frameworks - focuses on best practices and patterns
+
+---
+
+## Repository Purpose & Audience
+
+### Primary Purpose
+This repository serves as a comprehensive reference guide for Python developers who want to:
+- Write production-quality Python code following modern best practices
+- Set up robust development environments with proper tooling
+- Implement secure, performant, and maintainable applications
+- Automate testing, linting, and deployment pipelines
+- Stay current with Python 3.13+ features and 2025 ecosystem tools
+
+### Target Audience
+- **Junior to Mid-level Developers**: Learn industry-standard practices
+- **Senior Developers**: Quick reference for tooling configurations
+- **Team Leads**: Establish team-wide coding standards
+- **DevOps Engineers**: CI/CD pipeline templates and automation
+- **Security Engineers**: Security best practices and scanning tools
+
+### How to Use This Repository
+1. **New Projects**: Copy configurations from `02-LINTING-FORMATTING/` and `04-PROJECT-STRUCTURE/`
+2. **Code Reviews**: Reference `01-CORE-PRINCIPLES/` for style and design guidance
+3. **CI/CD Setup**: Use workflows from `06-CI-CD-TEMPLATES/`
+4. **Learning**: Follow the numbered directory structure sequentially
+5. **Team Standards**: Adopt the provided configs and modify as needed
+
+---
+
+## Automation & Scripts
+
+The repository includes several Windows automation scripts for rapid environment setup:
+
+### PowerShell Scripts
+- **python-project-scaffold.ps1**: Creates new Python project structure with all configurations
+- **vscode-python-setup.ps1**: Configures Python environment in VS Code
+- **setup-vscode-ultra-linting.ps1**: Sets up enhanced linting with multiple tools
+
+### Batch Files
+- **setup-vscode.bat**: Basic VS Code Python setup for Windows
+- **setup-vscode-complete.bat**: Complete VS Code configuration including extensions
+
+These scripts automate:
+- Installation of development tools (Ruff, Black, MyPy, pytest)
+- VS Code extension installation and configuration
+- Pre-commit hook setup
+- Project structure creation
+- Git repository initialization
+
+---
+
+## Testing Examples & Patterns
+
+From `07-EXAMPLES/fastapi-app.py`, the repository demonstrates:
+- FastAPI application structure with proper routing
+- Pydantic models for request/response validation
+- Authentication patterns (visible in truncated example)
+- Comprehensive test coverage patterns
+
+From `07-EXAMPLES/data-science-pipeline.py`:
+- ETL workflow implementation
+- Proper logging configuration
+- Error handling patterns
+- Testing data pipelines
+
+---
+
+## Summary of Key Learnings
+
+### For Claude Code Reference
+When working with Python projects, this repository provides:
+
+1. **Configuration Templates**: Copy-paste ready configs for `pyproject.toml`, `.pre-commit-config.yaml`, `ruff.toml`
+2. **CI/CD Patterns**: Complete GitHub Actions workflows with security scanning, multi-OS testing, and deployment
+3. **Security Patterns**: Input validation, SQL injection prevention, password hashing, CSRF protection
+4. **Performance Optimization**: Profiling tools, NumPy vectorization, database optimization
+5. **Project Structure**: Three different layout patterns (src-based, flat, application)
+6. **Testing Strategies**: pytest fixtures, parametrization, async testing, coverage reporting
+
+### Quick Wins
+- Start new projects with proper structure from day one
+- Enforce consistent code style across teams with Ruff + Black
+- Achieve 90%+ test coverage with pytest patterns
+- Automate security scanning with Bandit + Safety
+- Deploy with confidence using GitHub Actions templates
+
+---
+
+## Repository Maintenance
+
+### Update Frequency
+This repository should be reviewed and updated:
+- **Quarterly**: Tool version updates (Ruff, Black, MyPy, pytest)
+- **Semi-annually**: Python version support and new features
+- **As needed**: Security patches and critical updates
+
+### Current Status (December 2025)
+- All tool versions are current as of Q4 2025
+- Python 3.14 features documented
+- GitHub Actions workflows compatible with latest runners
+- Security practices aligned with OWASP standards
+
+---
+
+*Documentation maintained by: jtgsystems*
+*For issues or contributions: https://github.com/jtgsystems/PYTHON-BEST-PRACTICES-2025/issues*
